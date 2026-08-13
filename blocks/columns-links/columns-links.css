@@ -1,0 +1,70 @@
+/*
+ * columns-links — Genealogy resources link columns.
+ * Source: ancestry.com footer .cmp-item-list (Genealogy Resources / Historical
+ * Collections / Family Trees). Compact, top-aligned, left-grouped link columns
+ * with small bold sans-serif headings and small regular-weight text links.
+ * The warm-grey band + vertical padding is handled at section level
+ * (main .section.resources-grey in styles.css).
+ *
+ * Decorated DOM:
+ *   .columns-links > div            -> the single row
+ *   .columns-links > div > div      -> each column (h3 + ul > li > a)
+ */
+
+/* Row: mobile-first — columns stack vertically. */
+.columns-links > div {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* Heading — source: sans-serif 14.5px/700, #262626 (overrides the global serif h3). */
+.columns-links h3 {
+  margin: 0 0 6px;
+  font-family: var(--body-font-family);
+  font-size: 14.5px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text-color);
+}
+
+/* Link list — no bullets, no indent, no default margins. */
+.columns-links ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.columns-links li {
+  margin: 0;
+  padding: 0;
+  line-height: 19.285px;
+}
+
+/* Links — source: sans-serif 14px/400, #36322d, no underline. */
+.columns-links a:any-link {
+  font-family: var(--body-font-family);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18.62px;
+  color: #36322d;
+  text-decoration: none;
+}
+
+.columns-links a:hover {
+  text-decoration: underline;
+}
+
+/* Desktop — 3 columns side by side, left-grouped and top-aligned (matches source). */
+@media (width >= 900px) {
+  .columns-links > div {
+    flex-flow: row nowrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 48px;
+  }
+
+  .columns-links > div > div {
+    flex: 0 1 auto;
+  }
+}

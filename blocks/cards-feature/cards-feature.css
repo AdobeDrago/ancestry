@@ -1,0 +1,133 @@
+/* Block: cards-feature
+ * Source: ancestry.com desktop BAU education/resources feature (#container-9ac75caabe .cmp-item-list).
+ * Values extracted from source computed styles / cleaned.html / screenshot (see
+ * migration-work/cards-feature-extracted.css). Do not replace with generic defaults.
+ *
+ * Desktop = 2-column bento:
+ *   Left  = featured card 1 (tall square illustration): Watch helpful how-tos -> GREEN "Discover more"
+ *   Right = card 2 (Get started / questionnaire -> GREEN) stacked over card 3 (Explore Ancestry Daily -> SILVER)
+ * Mobile = single column stack.
+ */
+
+.cards-feature > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+/* Borderless feature items (no card chrome), image on top of body. */
+.cards-feature > ul > li {
+  border: none;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+}
+
+/* image cell */
+.cards-feature .cards-feature-card-image {
+  line-height: 0;
+}
+
+.cards-feature .cards-feature-card-image picture {
+  display: block;
+}
+
+.cards-feature .cards-feature-card-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  object-fit: cover;
+}
+
+/* text/body cell */
+.cards-feature .cards-feature-card-body {
+  margin: 24px 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* headings — source h3.text4xlrg.bold */
+.cards-feature h3 {
+  margin: 0;
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-l); /* 25px desktop */
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text-color);
+}
+
+/* paragraphs — source p.text2xlrg */
+.cards-feature .cards-feature-card-body p {
+  margin: 16px 0 0;
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-m); /* 21.5px desktop */
+  line-height: 1.33;
+  color: var(--text-color);
+}
+
+/* CTA container spacing */
+.cards-feature .cards-feature-card-body .button-container {
+  margin: 24px 0 0;
+}
+
+/* CTA — green primary is the default (Discover more, Start our questionnaire).
+ * Inherits a.button from styles.css (#328800 pill). Reassert scoped for specificity. */
+main .cards-feature a.button:any-link {
+  margin: 0;
+  background-color: var(--brand-green);
+  color: #fff;
+  border-radius: 32px;
+  padding: 10px 34px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+main .cards-feature a.button:hover,
+main .cards-feature a.button:focus {
+  background-color: var(--brand-green-dark);
+  color: #fff;
+}
+
+/* CTA — silver/secondary on the LAST card only (source: Explore more, button-color__silver) */
+main .cards-feature > ul > li:last-child a.button:any-link {
+  background-color: var(--cta-secondary-bg);
+  color: var(--text-color);
+}
+
+main .cards-feature > ul > li:last-child a.button:hover,
+main .cards-feature > ul > li:last-child a.button:focus {
+  background-color: var(--cta-secondary-bg-hover);
+  color: var(--text-color);
+}
+
+/* ---------- Desktop: 2-column bento ---------- */
+@media (width >= 900px) {
+  .cards-feature > ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+
+  /* Card 1 (featured) occupies the whole left column and spans both stacked
+     right cards vertically. */
+  .cards-feature > ul > li:first-child {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+  }
+
+  /* Card 2 -> top-right, Card 3 -> bottom-right */
+  .cards-feature > ul > li:nth-child(2) {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .cards-feature > ul > li:last-child {
+    grid-column: 2;
+    grid-row: 2;
+  }
+}

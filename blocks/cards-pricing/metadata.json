@@ -1,0 +1,37 @@
+{
+  "variantName": "cards-pricing",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-08-13T00:00:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.ancestry.com/",
+    "originPage": "Ancestry.com logged-out homepage (LOHP)",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "grey",
+    "density": "spacious",
+    "purpose": "pricing",
+    "imagePattern": "icon"
+  },
+  "contentPattern": {
+    "structure": "each card = icon + title + price + description + CTA + What's-included checklist",
+    "buttonCount": 3,
+    "imageCount": 3
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "3-up plan/pricing comparison cards on rounded grey panels",
+      "membership/product tiers with an icon, price and feature checklist"
+    ],
+    "notSuitableFor": [
+      "editorial/article card grids with cover photos (use cards-feature)",
+      "two wide side-by-side panels (use columns-product)"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-08-13T00:00:00.000Z"
+  }
+}

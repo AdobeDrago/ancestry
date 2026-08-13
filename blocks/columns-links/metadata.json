@@ -1,0 +1,37 @@
+{
+  "variantName": "columns-links",
+  "baseBlock": "columns",
+  "version": "1.0.0",
+  "created": "2026-08-13T00:00:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.ancestry.com/",
+    "originPage": "Ancestry.com logged-out homepage (LOHP)",
+    "blockPosition": "bottom"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "grey",
+    "density": "compact",
+    "purpose": "resource-links",
+    "imagePattern": "noimg"
+  },
+  "contentPattern": {
+    "structure": "3 columns, each = bold heading + bulleted link list",
+    "buttonCount": 0,
+    "imageCount": 0
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "footer-style SEO resource link groupings in side-by-side columns",
+      "directory/sitemap style link lists with a heading per column"
+    ],
+    "notSuitableFor": [
+      "image/CTA product panels (use columns-product)",
+      "repeating bordered card items (use cards variants)"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-08-13T00:00:00.000Z"
+  }
+}

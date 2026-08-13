@@ -1,0 +1,37 @@
+{
+  "variantName": "hero-promo",
+  "baseBlock": "hero",
+  "version": "1.0.0",
+  "created": "2026-08-13T00:00:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.ancestry.com/",
+    "originPage": "Ancestry.com logged-out homepage (LOHP)",
+    "blockPosition": "top"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "dark",
+    "density": "compact",
+    "purpose": "promo-banner",
+    "imagePattern": "noimg"
+  },
+  "contentPattern": {
+    "structure": "banner-text + outlined CTA",
+    "buttonCount": 1,
+    "imageCount": 0
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "full-width solid-color promotional call-to-action bands",
+      "announcement/NEW banners with a single outlined button"
+    ],
+    "notSuitableFor": [
+      "top-of-page heroes with a background photo (use hero-collage)",
+      "multi-column content layouts"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-08-13T00:00:00.000Z"
+  }
+}

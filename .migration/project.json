@@ -1,0 +1,10 @@
+{
+  "type": "da",
+  "sites": {
+    "ancestry": {
+      "previewOrg": "adobedrago",
+      "previewSite": "ancestry",
+      "libraryUrl": "https://main--sta-boilerplate--aemdemos.aem.page/tools/sidekick/library.json"
+    }
+  }
+}
