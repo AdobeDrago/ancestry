@@ -42,13 +42,10 @@ function decorateLocale(navTools) {
  * @param {Element} block The header block element
  */
 export default async function decorate(block) {
-  // load nav as fragment — dual-fetch: local (aem up) then DA/EDS production
+  // load nav as fragment
   const navMeta = getMetadata('nav');
-  const navPath = navMeta ? new URL(navMeta, window.location).pathname : '/content/nav';
-  let fragment = await loadFragment('/content/nav');
-  if (!fragment || !fragment.firstElementChild) {
-    fragment = await loadFragment(navPath);
-  }
+  const navPath = navMeta ? new URL(navMeta, window.location).pathname : '/nav';
+  const fragment = await loadFragment(navPath);
 
   // decorate nav DOM
   block.textContent = '';
