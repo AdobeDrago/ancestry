@@ -1,5 +1,3 @@
-import { createOptimizedPicture } from '../../scripts/aem.js';
-
 /**
  * Split a plain "From $24.99 /mo." price paragraph into styled parts so we can
  * reproduce the source's large-number-with-superscripts price typography.
@@ -43,75 +41,67 @@ function enhancePrice(scope) {
   priceP.append(from, amount);
 }
 
+/**
+ * Normalize an authored background-color value. Accepts hex (e.g. #f6f3f0) or
+ * rgb()/rgba() (space- or comma-separated, e.g. "rgb(228 239 231)"). A stray
+ * trailing ";" is stripped. Returns '' when the value is not a recognizable
+ * color, so a malformed cell falls back to the default panel background rather
+ * than injecting arbitrary text into the style attribute.
+ */
+function normalizeColor(raw) {
+  if (!raw) return '';
+  const value = raw.replace(/;/g, '').trim();
+  const isHex = /^#(?:[0-9a-f]{3,4}|[0-9a-f]{6}|[0-9a-f]{8})$/i.test(value);
+  const isRgb = /^rgba?\([\d\s.,%/]+\)$/i.test(value);
+  return isHex || isRgb ? value : '';
+}
+
 export default function decorate(block) {
   const ul = document.createElement('ul');
 
   [...block.children].forEach((row) => {
+    const [colorCell, contentCell, listCell] = row.children;
+
     const li = document.createElement('li');
     li.className = 'cards-pricing-card';
-    while (row.firstElementChild) li.append(row.firstElementChild);
 
-    // Identify the authored cells: image cell (icon) + body cell (text).
-    let imageCell = null;
-    let bodyCell = null;
-    [...li.children].forEach((div) => {
-      if (div.children.length === 1 && div.querySelector('picture')) imageCell = div;
-      else bodyCell = div;
-    });
-
-    // Rebuild into a colored panel (icon + title + price + desc + CTA) and a
-    // features zone (What's included + checklist) that sits below the panel,
-    // matching the source layout.
+    // --- Colored panel: title + price + description + CTA ---
     const panel = document.createElement('div');
     panel.className = 'cards-pricing-panel';
+
+    // First cell defines the panel background color.
+    if (colorCell) {
+      const color = normalizeColor(colorCell.textContent);
+      if (color) panel.style.backgroundColor = color;
+    }
+
+    // Second cell holds the panel content (title, price, description).
+    if (contentCell) {
+      while (contentCell.firstElementChild) panel.append(contentCell.firstElementChild);
+    }
+
+    // --- Features zone: "What's included" + checklist (below the panel) ---
     const features = document.createElement('div');
     features.className = 'cards-pricing-features';
 
-    const header = document.createElement('div');
-    header.className = 'cards-pricing-header';
-    if (imageCell) {
-      const iconWrap = document.createElement('div');
-      iconWrap.className = 'cards-pricing-icon';
-      while (imageCell.firstChild) iconWrap.append(imageCell.firstChild);
-      header.append(iconWrap);
-      imageCell.remove();
-    }
-    if (bodyCell) {
-      const title = bodyCell.querySelector('h1, h2, h3, h4, h5, h6');
-      if (title) header.append(title);
-      panel.append(header);
-
-      const list = bodyCell.querySelector('ul');
-      const includedLabel = list && list.previousElementSibling
-        && list.previousElementSibling.tagName === 'P'
-        ? list.previousElementSibling : null;
-
-      [...bodyCell.children].forEach((el) => {
-        if (el === list) {
-          features.append(el);
-        } else if (el === includedLabel) {
-          el.className = 'cards-pricing-included';
-          features.append(el);
-        } else {
-          panel.append(el);
-        }
+    // Third cell holds the checklist plus the CTA. The CTA (a link in its own
+    // paragraph) moves into the panel; the label + list stay in the features
+    // zone below the panel.
+    if (listCell) {
+      const cta = [...listCell.children].find((el) => el.tagName === 'P' && el.querySelector('a'));
+      [...listCell.children].forEach((el) => {
+        if (el === cta) return;
+        if (el.tagName === 'P') el.className = 'cards-pricing-included';
+        features.append(el);
       });
-      bodyCell.remove();
-    } else {
-      panel.append(header);
+      if (cta) panel.append(cta);
     }
 
     enhancePrice(panel);
 
-    li.textContent = '';
     li.append(panel);
     if (features.children.length) li.append(features);
     ul.append(li);
-  });
-
-  ul.querySelectorAll('picture > img').forEach((img) => {
-    const optimizedPic = createOptimizedPicture(img.src, img.alt, false, [{ width: '750' }]);
-    img.closest('picture').replaceWith(optimizedPic);
   });
 
   block.textContent = '';
