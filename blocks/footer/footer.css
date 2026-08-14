@@ -1,20 +1,91 @@
+/* Ancestry global footer — transparent bar on the page background, two text rows */
 footer {
-  background-color: var(--light-color);
-  font-size: var(--body-font-size-xs);
+  background-color: transparent;
+  font-family: var(--body-font-family);
+  color: var(--text-color, #262626);
 }
 
 footer .footer > div {
   margin: auto;
-  max-width: 1200px;
-  padding: 40px 24px 24px;
+  max-width: var(--content-max-width, 1200px);
+  padding: 24px;
+}
+
+@media (width >= 900px) {
+  footer .footer > div {
+    padding: 24px 32px 32px;
+  }
 }
 
 footer .footer p {
   margin: 0;
 }
 
-@media (width >= 900px) {
-  footer .footer > div {
-    padding: 40px 32px 24px;
+/* shared list reset */
+footer .footer ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+footer .footer a:any-link {
+  color: var(--text-color, #262626);
+  text-decoration: none;
+}
+
+footer .footer a:hover {
+  color: var(--text-color, #262626);
+  text-decoration: underline;
+}
+
+/* utility links row */
+footer .footer .footer-utility {
+  padding-bottom: 4px;
+}
+
+footer .footer .footer-utility ul {
+  gap: 10px 20px;
+  font-size: 13px;
+}
+
+footer .footer .footer-utility li {
+  line-height: 1.4;
+}
+
+footer .footer .footer-utility .footer-locale-item {
+  margin-left: 4px;
+}
+
+/* legal / copyright row — middot-separated */
+footer .footer .footer-legal {
+  padding-top: 0;
+}
+
+footer .footer .footer-legal ul {
+  gap: 4px 8px;
+  font-size: 12px;
+  color: var(--text-color, #262626);
+}
+
+footer .footer .footer-legal li {
+  display: inline-flex;
+  align-items: center;
+  line-height: 1.5;
+}
+
+footer .footer .footer-legal li:not(:first-child)::before {
+  content: '·';
+  margin-right: 8px;
+  color: var(--text-color, #262626);
+}
+
+/* mobile: allow rows to wrap naturally; left-aligned */
+@media (width < 900px) {
+  footer .footer .footer-utility ul,
+  footer .footer .footer-legal ul {
+    gap: 8px 14px;
   }
 }
