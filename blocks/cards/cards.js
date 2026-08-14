@@ -7,8 +7,17 @@ export default function decorate(block) {
     const li = document.createElement('li');
     while (row.firstElementChild) li.append(row.firstElementChild);
     [...li.children].forEach((div) => {
-      if (div.children.length === 1 && div.querySelector('picture')) div.className = 'cards-card-image';
-      else div.className = 'cards-card-body';
+      const picture = div.querySelector('picture');
+      if (picture) {
+        div.className = 'cards-card-image';
+        // The image cell may also carry text (e.g. a card heading). When it
+        // does, keep the image last so the text renders ABOVE it.
+        const pictureWrapper = picture.closest('p') || picture;
+        pictureWrapper.classList.add('cards-card-image-pic');
+        div.append(pictureWrapper);
+      } else {
+        div.className = 'cards-card-body';
+      }
     });
     ul.append(li);
   });

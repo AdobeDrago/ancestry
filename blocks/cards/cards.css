@@ -3,25 +3,70 @@
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(257px, 1fr));
-  grid-gap: 24px;
+  grid-template-columns: 1fr;
+  gap: 40px 32px;
+}
+
+/* Two-up on desktop. */
+@media (width >= 900px) {
+  .cards > ul {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 48px 48px;
+  }
 }
 
 .cards > ul > li {
-  border: 1px solid #dadada;
-  background-color: var(--background-color);
+  display: flex;
+  flex-direction: column;
+  background-color: transparent;
+  border: 0;
 }
 
-.cards .cards-card-body {
-  margin: 16px;
-}
-
+/* Image cell: optional heading (rendered above) + the image. */
 .cards .cards-card-image {
+  margin: 0;
+  line-height: normal;
+  position: relative;
+}
+
+.cards .cards-card-image p {
+  margin: 0;
+}
+
+/* Heading that accompanies the image (any text that is not the picture). */
+.cards .cards-card-image p:not(.cards-card-image-pic) {
+  margin: 0 0 16px;
+  font-family: var(--body-font-family);
+  font-size: var(--heading-font-size-l);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text-color);
+  position: absolute;
+  top: 10%;
+  left: 17%;
+}
+
+.cards .cards-card-image .cards-card-image-pic {
   line-height: 0;
 }
 
-.cards > ul > li img {
+.cards .cards-card-image img {
+  display: block;
   width: 100%;
-  aspect-ratio: 4 / 3;
+  height: auto;
+  border-radius: 12px;
   object-fit: cover;
+}
+
+/* Body cell: copy + CTA. */
+.cards .cards-card-body {
+  margin: 20px 0 0;
+}
+
+.cards .cards-card-body > p {
+  margin: 0 0 16px;
+}
+
+.cards .cards-card-body .button-container {
+  margin: 24px 0 0;
 }
