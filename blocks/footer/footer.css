@@ -1,8 +1,9 @@
 /* Ancestry global footer — transparent bar on the page background, two text rows */
 footer {
-  background-color: transparent;
+  background-color: #ece9e4;
   font-family: var(--body-font-family);
   color: var(--text-color, #262626);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 footer .footer > div {
@@ -14,6 +15,7 @@ footer .footer > div {
 @media (width >= 900px) {
   footer .footer > div {
     padding: 24px 32px 32px;
+    max-width: 990px;
   }
 }
 
@@ -21,7 +23,13 @@ footer .footer p {
   margin: 0;
 }
 
-/* shared list reset */
+footer .footer > div > div {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+/* shared list reset — centered rows, matching production */
 footer .footer ul {
   list-style: none;
   margin: 0;
@@ -29,6 +37,8 @@ footer .footer ul {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: flex-start;
+  text-align: center;
 }
 
 footer .footer a:any-link {
@@ -43,7 +53,7 @@ footer .footer a:hover {
 
 /* utility links row */
 footer .footer .footer-utility {
-  padding-bottom: 4px;
+  padding-bottom: 1rem;
 }
 
 footer .footer .footer-utility ul {
@@ -55,8 +65,18 @@ footer .footer .footer-utility li {
   line-height: 1.4;
 }
 
-footer .footer .footer-utility .footer-locale-item {
-  margin-left: 4px;
+/* locale control with globe icon */
+footer .footer .footer-utility .footer-locale-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+footer .footer .footer-utility .footer-locale-icon {
+  flex: 0 0 auto;
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
 }
 
 /* legal / copyright row — middot-separated */
@@ -87,5 +107,11 @@ footer .footer .footer-legal li:not(:first-child)::before {
   footer .footer .footer-utility ul,
   footer .footer .footer-legal ul {
     gap: 8px 14px;
+  }
+
+  footer .footer .footer-legal ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }

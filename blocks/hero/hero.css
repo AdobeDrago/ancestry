@@ -1,8 +1,12 @@
+/* Full-bleed: cancel the section's content cap + gutters for every hero */
 .hero-container .hero-wrapper {
   max-width: unset;
   padding: 0;
 }
 
+/* =========================================================================
+   Default hero — full-bleed background image with an overlaid heading
+   ========================================================================= */
 .hero {
   position: relative;
   padding: 40px 24px;
@@ -33,5 +37,131 @@
 @media (width >= 900px) {
   .hero {
     padding: 40px 32px;
+  }
+}
+
+/* =========================================================================
+   Variant: hero (collage)
+   Centered display-serif headline, bold subheading, green pill CTA and fine
+   print sitting on a warm-beige gradient, above a full-bleed photo collage.
+   Source: https://www.ancestry.com/  (.showBAUHero .a250-gradient)
+   ========================================================================= */
+.hero.collage {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  min-height: unset;
+
+  /* warm beige vertical gradient: lighter at top, warmer/darker at bottom */
+  background-color: #f6f3f0;
+  background-image: linear-gradient(0deg, rgb(218 212 197) 0%, rgb(246 243 240) 100%);
+}
+
+/* Text column sits above the collage image */
+.hero.collage .hero-content {
+  order: 0;
+  padding: 48px 24px 24px;
+  text-align: center;
+}
+
+.hero.collage .hero-content > div {
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+/* Collage image spans full width below the text */
+.hero.collage .hero-image {
+  order: 1;
+}
+
+.hero.collage .hero-image picture {
+  position: static;
+  display: block;
+  width: 100%;
+}
+
+.hero.collage .hero-image img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* --- Headline: regular-weight display serif (NOT bold) --- */
+.hero.collage h1 {
+  max-width: none;
+  margin: 0;
+  font-family: var(--heading-font-family);
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--text-color);
+}
+
+/* --- Subheading (first paragraph): bold body copy --- */
+.hero.collage p {
+  margin: 24px 0 0;
+  font-family: var(--body-font-family);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.33;
+  color: var(--text-color);
+}
+
+/* --- CTA row --- */
+.hero.collage p.button-container {
+  margin: 36px 0 0;
+}
+
+/* CTA pill: green, white — matches source 18px / 9px 34px / radius 32px */
+.hero.collage a.button:any-link {
+  margin: 0;
+  padding: 9px 34px;
+  border: 1px solid transparent;
+  border-radius: 32px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 30px;
+  background-color: var(--brand-green);
+  color: #fff;
+}
+
+.hero.collage a.button:hover,
+.hero.collage a.button:focus {
+  background-color: var(--brand-green-dark);
+  color: #fff;
+}
+
+/* --- Fine print (last paragraph) --- */
+.hero.collage p:last-of-type {
+  margin: 14px 0 0;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.33;
+  color: var(--text-color);
+}
+
+/* --- Desktop --- */
+@media (width >= 900px) {
+  .hero.collage .hero-content {
+    padding: 64px 32px 32px;
+  }
+
+  .hero.collage h1 {
+    font-size: 60px;
+    line-height: 72px;
+  }
+
+  .hero.collage p {
+    margin-top: 25px;
+    font-size: 20px;
+  }
+
+  .hero.collage p.button-container {
+    margin-top: 40px;
+  }
+
+  .hero.collage p:last-of-type {
+    margin-top: 14px;
+    font-size: 13px;
   }
 }
