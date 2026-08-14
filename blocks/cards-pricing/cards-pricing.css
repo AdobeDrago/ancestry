@@ -1,0 +1,228 @@
+/* Block: cards-pricing — three-up plan comparison.
+ * Values extracted from ancestry.com computed styles.
+ * Decorated DOM: .cards-pricing > ul > li.cards-pricing-card
+ *   > .cards-pricing-panel (icon+title header, price, description, CTA)
+ *   > .cards-pricing-features (What's included label + checklist) */
+
+/* ---- 3-up layout (mobile-first: stacked) ---- */
+.cards-pricing > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+.cards-pricing-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0; /* prevent large price number from blowing out grid tracks */
+}
+
+/* ---- Rounded tinted panel (one tint per plan) ---- */
+.cards-pricing-panel {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  border-radius: 10px;
+  padding: 40px 32px;
+  background-color: rgb(228 239 231); /* soft green */
+}
+
+.cards-pricing-card:nth-child(2) .cards-pricing-panel {
+  background-color: rgb(229 240 241); /* soft blue */
+}
+
+.cards-pricing-card:nth-child(3) .cards-pricing-panel {
+  background-color: var(--panel-bg); /* warm grey #f6f3f0 */
+}
+
+/* ---- Icon + title header ---- */
+.cards-pricing-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.cards-pricing-icon {
+  flex: 0 0 auto;
+  width: 48px;
+  height: 48px;
+  line-height: 0;
+}
+
+.cards-pricing-icon img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+
+.cards-pricing-header h3 {
+  margin: 0;
+  font-family: var(--body-font-family); /* source card titles are sans, not serif */
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text-color);
+}
+
+/* ---- Price typography (From / $ 24 .99 /mo.) ---- */
+.cards-pricing-price {
+  margin: 32px 0 0;
+}
+
+.cards-pricing-price-from {
+  display: block;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-color);
+}
+
+.cards-pricing-price-amount {
+  display: flex;
+  align-items: flex-start;
+  color: var(--text-color);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.cards-pricing-price-number {
+  font-size: 64px;
+  line-height: 0.94;
+}
+
+.cards-pricing-price-symbol,
+.cards-pricing-price-suffix {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1;
+  margin-top: 6px;
+  vertical-align: baseline;
+  top: 0;
+  position: static;
+}
+
+/* ---- Description ---- */
+.cards-pricing-panel p:not(.cards-pricing-price, .button-container) {
+  margin: 10px 0 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-color);
+}
+
+/* ---- CTA button ---- */
+.cards-pricing .button-container {
+  margin: 24px 0 0;
+  margin-top: auto; /* anchor CTA near panel bottom so cards align */
+}
+
+main .cards-pricing a.button:any-link {
+  display: inline-block;
+  margin: 0;
+  padding: 9px 34px;
+  border-radius: 32px;
+  font-size: 18px;
+  font-weight: 700;
+  background-color: var(--brand-green); /* card 1: green #328800 */
+  color: #fff;
+}
+
+/* card 2: DNA teal */
+main .cards-pricing-card:nth-child(2) a.button:any-link {
+  background-color: #117fa6;
+}
+
+main .cards-pricing-card:nth-child(2) a.button:hover,
+main .cards-pricing-card:nth-child(2) a.button:focus {
+  background-color: #0e6a8c;
+}
+
+/* card 3: bundle silver/grey CTA with white text */
+main .cards-pricing-card:nth-child(3) a.button:any-link {
+  background-color: #767676;
+  color: #fff;
+}
+
+main .cards-pricing-card:nth-child(3) a.button:hover,
+main .cards-pricing-card:nth-child(3) a.button:focus {
+  background-color: #5f5f5f;
+  color: #fff;
+}
+
+/* ---- Features: "What's included" + checklist (below the panel) ---- */
+.cards-pricing-features {
+  flex: 0 0 auto;
+  margin-top: 20px;
+}
+
+.cards-pricing-included {
+  margin: 0 0 15px;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-color);
+}
+
+.cards-pricing-features ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cards-pricing-features li {
+  position: relative;
+  margin: 0 0 10px;
+  padding-left: 28px;
+  font-size: 16px;
+  line-height: 1.33;
+  color: var(--text-color);
+}
+
+/* Filled circle + white check bullet (color matches the plan). */
+.cards-pricing-features li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 1px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: var(--brand-green);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='none' stroke='%23fff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round' d='M5 13l4 4L19 7'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 12px 12px;
+}
+
+.cards-pricing-card:nth-child(2) .cards-pricing-features li::before {
+  background-color: #117fa6;
+}
+
+.cards-pricing-card:nth-child(3) .cards-pricing-features li::before {
+  background-color: #767676;
+}
+
+/* ---- Desktop: three across ---- */
+@media (width >= 900px) {
+  .cards-pricing > ul {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-rows: auto auto;
+    gap: 0 32px;
+    align-items: stretch;
+  }
+
+  /* Each card spans both rows and shares them via subgrid, so every panel
+     is the same height and every checklist starts on the same baseline. */
+  .cards-pricing-card {
+    grid-row: span 2;
+    display: grid;
+    grid-template-rows: subgrid;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .cards-pricing-panel {
+    min-width: 0;
+    padding: 40px 40px 50px;
+  }
+}
