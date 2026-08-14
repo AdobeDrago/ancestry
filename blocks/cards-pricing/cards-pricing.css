@@ -28,7 +28,7 @@
   flex: 1 1 auto;
   border-radius: 10px;
   padding: 40px 32px;
-  background-color: var(--panel-bg); /* fallback when no color is authored */
+  background-color: var(--light-color); /* fallback when no color is authored */
 }
 
 /* ---- Title ---- */

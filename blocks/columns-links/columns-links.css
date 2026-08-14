@@ -4,17 +4,28 @@
  * Collections / Family Trees). Compact, top-aligned, left-grouped link columns
  * with small bold sans-serif headings and small regular-weight text links.
  * The warm-grey band + vertical padding is handled at section level
- * (main .section.resources-grey in styles.css).
+ * (main .section.highlight in styles.css).
  *
  * Decorated DOM:
  *   .columns-links > div            -> the single row
  *   .columns-links > div > div      -> each column (h3 + ul > li > a)
  */
 
+ .section.columns-links-container {
+  padding: 1rem !important;
+  margin: 0 !important;
+ }
+
+ .section .columns-links-wrapper {
+  padding: 0;
+ }
+
 /* Row: mobile-first — columns stack vertically. */
 .columns-links > div {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 28px;
 }
 
@@ -59,8 +70,8 @@
 @media (width >= 900px) {
   .columns-links > div {
     flex-flow: row nowrap;
-    align-items: flex-start;
-    justify-content: flex-start;
+    align-items: center;
+    justify-content: center;
     gap: 48px;
   }
 

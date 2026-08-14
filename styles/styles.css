@@ -1,5 +1,3 @@
-@import url('brand.css');
-
 /*
  * Copyright 2020 Adobe. All rights reserved.
  * This file is licensed to you under the Apache License, Version 2.0 (the "License");
@@ -13,10 +11,31 @@
  */
 
 :root {
-  /* colors (brand values live in brand.css; mirrored here for the boilerplate names) */
-  --light-color: #f6f3f0;
-  --dark-color: #154734;
+  /*
+   * Ancestry.com design tokens (consolidated from the former brand.css).
+   * Heading font resolved to Lora (ttclosest free match to Ancestry's proprietary
+   * self-hosted serif); body kept on the Helvetica Neue/Arial system stack.
+   */
+
+  /* fonts */
+  --heading-font-family: "Lora", "Times New Roman", times, serif;
+  --body-font-family: "Helvetica Neue", arial, helvetica, sans-serif;
+
+  /* palette — one literal per color (single source of truth) */
+  --text-color: #262626; /* ink */
+  --light-color: #f6f3f0; /* warm-grey light surface */
+  --dark-color: #154734; /* dark green surface */
   --white-color: #fff;
+  --brand-green: #328800; /* rgb(50 136 0) */
+  --brand-green-dark: #2a7300;
+  --brand-blue: #117fa6; /* rgb(17 127 166) */
+  --cta-secondary-bg: #e2e0dd;
+  --cta-secondary-bg-hover: #d5d2ce;
+
+  /* semantic aliases (reference the palette — no duplicate literals) */
+  --background-color: var(--light-color);
+  --link-color: var(--text-color);
+  --link-hover-color: var(--brand-green);
 
   /* body sizes (mobile-first: Ancestry body copy ~21.5px on desktop) */
   --body-font-size-m: 18px;
@@ -31,7 +50,9 @@
   --heading-font-size-s: 18px;
   --heading-font-size-xs: 16px;
 
-  /* nav heights */
+  /* layout */
+  --content-max-width: 1200px;
+  --nav-height: 55px;
   --breadcrumbs-height: 34px;
   --header-height: var(--nav-height);
 }
@@ -43,13 +64,13 @@
     --body-font-size-s: 18px;
     --body-font-size-xs: 16px;
 
-    /* heading sizes (Ancestry desktop: h1 60 / h2 42-48 / h3 25) */
-    --heading-font-size-xxl: var(--heading-size-xxl);
-    --heading-font-size-xl: var(--heading-size-xl);
-    --heading-font-size-l: var(--heading-size-l);
-    --heading-font-size-m: var(--heading-size-m);
-    --heading-font-size-s: var(--heading-size-s);
-    --heading-font-size-xs: var(--heading-size-xs);
+    /* heading sizes (Ancestry desktop: h1 60 / h2 42 / h3 25 / h4 22 / h5 20 / h6 18) */
+    --heading-font-size-xxl: 60px;
+    --heading-font-size-xl: 42px;
+    --heading-font-size-l: 25px;
+    --heading-font-size-m: 22px;
+    --heading-font-size-s: 20px;
+    --heading-font-size-xs: 18px;
   }
 }
 
@@ -278,8 +299,8 @@ main .section.dark h3 {
 }
 
 /* Genealogy resources link columns — warm-grey band */
-main .section.resources-grey {
-  background-color: var(--resources-grey);
+main .section.highlight {
+  background-color: var(--light-color);
   margin: 0;
   padding: 48px 0;
 }
