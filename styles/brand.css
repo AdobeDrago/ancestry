@@ -18,8 +18,9 @@
   --link-hover-color: #328800;
 
   /* brand accents */
-  --brand-green: #328800;
+  --brand-green: #328800; /* rgb(50 136 0) */
   --brand-green-dark: #2a7300;
+  --brand-blue: #117fa6; /* rgb(17 127 166) */
   --cta-secondary-bg: #e2e0dd;
   --cta-secondary-bg-hover: #d5d2ce;
   --promo-band-bg: #154734;

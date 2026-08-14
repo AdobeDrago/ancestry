@@ -241,7 +241,7 @@ main > .section {
 main > .section > div {
   max-width: 1200px;
   margin: auto;
-  padding: 0 24px;
+  padding: 0 24px 2rem;
 }
 
 main > .section:first-of-type {
@@ -250,7 +250,7 @@ main > .section:first-of-type {
 
 @media (width >= 900px) {
   main > .section > div {
-    padding: 0 32px;
+    padding: 0 32px 2rem;
   }
 }
 
@@ -282,4 +282,22 @@ main .section.resources-grey {
   background-color: var(--resources-grey);
   margin: 0;
   padding: 48px 0;
+}
+
+/* Center default content */
+main .section.text-center > .default-content-wrapper {
+  text-align: center;
+}
+
+/* Highlight default content title and description.
+   Authors mark emphasis inline in the doc: bold (<strong>) renders in brand
+   green, italic (<em>) renders in brand blue — upright and bold, not italic. */
+main .section.highlight-title > .default-content-wrapper strong {
+  color: var(--brand-green);
+}
+
+main .section.highlight-title > .default-content-wrapper em {
+  color: var(--brand-blue);
+  font-style: normal;
+  font-weight: 700;
 }
