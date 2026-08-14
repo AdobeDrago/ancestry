@@ -1,71 +1,67 @@
 /*
- * hero-promo — full-bleed promotional band.
- * Values extracted from ancestry.com BAU homepage
- * (.showBAUHero .container-media-4b51e59470) via getComputedStyle.
- * See migration-work/hero-promo-extracted.css for the raw extraction.
+ * promo-banner — full-bleed promotional announcement band.
+ * (Formerly the hero-promo block.) Solid brand-green band with a serif
+ * message on the left and a white pill CTA pinned to the right on desktop;
+ * stacked and centered on mobile.
  */
 
 /*
- * Full-bleed: the band spans edge-to-edge in the source. This block's section
- * is SHARED with hero-collage, so we widen only the promo WRAPPER, not the
- * section. The section is already full viewport width with no side padding, so
- * clearing the wrapper's centered constraints (from `main > .section > div`,
- * which sets max-width:1200px / margin:auto / padding:0 24-32px) lets it fill
- * the section edge-to-edge. Two-class selector beats that rule's specificity.
+ * Full-bleed: the band spans edge-to-edge. Clear the centered content
+ * constraints applied to `main > .section > div` (max-width / margin:auto /
+ * side padding) on the promo WRAPPER so it fills the section. Two-class
+ * selector beats that rule's specificity.
  */
-.hero-promo-container .hero-promo-wrapper {
+.promo-banner-container .promo-banner-wrapper {
   max-width: none;
   margin: 0;
   padding: 0;
 }
 
-/* Solid brand-green band (no background image in source). */
-.hero-promo {
+/* Solid brand-green band (no background image). */
+.promo-banner {
   box-sizing: border-box;
-  background-color: var(--brand-green); /* #328800 — verified painted color */
+  background-color: var(--brand-green); /* #328800 */
   color: #fff;
-  padding: 30px 0;
+  padding: 26px 0;
 }
 
-/* Inner content cell: mobile-first stacked + centered.
-   Source spreads content nearly edge-to-edge (only ~84px side insets at 1440),
-   so this row is NOT capped at the 1200px content width used elsewhere. */
-.hero-promo > div > div {
+/* Inner content cell: mobile-first stacked + centered. */
+.promo-banner > div > div {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
+  gap: 16px;
   margin: 0 auto;
   padding: 0 24px;
   text-align: center;
+  max-width: 1400px;
 }
 
-/* Promo message — serif, white, centered (matches source .text2xlrg span). */
-.hero-promo p {
+/* Promo message — serif, white. Scales up smoothly to a large desktop size. */
+.promo-banner p {
   margin: 0;
   color: #fff;
   font-family: var(--heading-font-family);
-  font-size: 18px;
+  font-size: clamp(20px, 1rem + 1.4vw, 30px);
   font-weight: 400;
-  line-height: 1.33;
-  text-align: center;
+  line-height: 1.2;
 }
 
-.hero-promo strong {
+.promo-banner strong {
   font-weight: 700;
 }
 
-/* CTA — white-filled pill with dark label (NOT outlined). Overrides the global
-   green a.button:any-link (specificity: 3 classes + 1 element beats 2 + 1). */
-.hero-promo .button-container {
+/* CTA — white-filled pill with dark label. Overrides the global green
+   a.button:any-link (specificity: 3 classes + 1 element beats 2 + 1). */
+.promo-banner .button-container {
   margin: 0;
 }
 
-.hero-promo a.button:any-link {
+.promo-banner a.button:any-link {
   display: inline-block;
   margin: 0;
-  padding: 9px 34px;
+  padding: 10px 34px;
   border: 1px solid transparent;
   border-radius: 32px;
   background-color: #fff;
@@ -77,28 +73,31 @@
   white-space: nowrap;
 }
 
-/* Hover: keep the light-pill identity, dim slightly using the brand's secondary
-   CTA hover tone. (Source hover not capturable; brand-consistent, not in static
-   fidelity comparison.) */
-.hero-promo a.button:hover,
-.hero-promo a.button:focus {
+.promo-banner a.button:hover,
+.promo-banner a.button:focus {
   background-color: var(--cta-secondary-bg-hover); /* #d5d2ce */
   color: var(--text-color);
 }
 
-/* Desktop: message fills the left, CTA pinned to the right (source space-between). */
+/* Desktop: message fills the left (left-aligned), CTA pinned to the right. */
 @media (width >= 900px) {
-  .hero-promo > div > div {
+  .promo-banner {
+    padding: 30px 0;
+  }
+
+  .promo-banner > div > div {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    gap: 24px;
-    padding: 0 84px; /* matches source ~84px side insets at 1440 */
+    gap: 32px;
+    padding: 0 clamp(32px, 8vw, 120px);
+    text-align: left;
   }
 
   /* Only the message grows; the button-container (also a <p>) stays natural
      width so space-between pins the CTA to the right edge. */
-  .hero-promo p:not(.button-container) {
+  .promo-banner p:not(.button-container) {
     flex: 1;
+    font-size: 28px;
   }
 }

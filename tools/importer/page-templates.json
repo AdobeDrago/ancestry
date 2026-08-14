@@ -18,7 +18,7 @@
           ]
         },
         {
-          "name": "hero-promo",
+          "name": "promo-banner",
           "instances": [
             ".showBAUHero .container-media-4b51e59470"
           ]
@@ -56,7 +56,7 @@
           "style": null,
           "blocks": [
             "hero-collage",
-            "hero-promo"
+            "promo-banner"
           ],
           "defaultContent": []
         },

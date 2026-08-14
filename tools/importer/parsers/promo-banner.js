@@ -1,7 +1,7 @@
 /* eslint-disable */
 /* global WebImporter */
 /**
- * Parser for hero-promo. Base block: hero.
+ * Parser for promo-banner. Base block: hero.
  * Source: https://www.ancestry.com/ (.showBAUHero .container-media-4b51e59470)
  * Generated: 2026-08-13
  *
@@ -43,6 +43,6 @@ export default function parse(element, { document }) {
   const cells = [];
   cells.push([contentCell]);
 
-  const block = WebImporter.Blocks.createBlock(document, { name: 'hero-promo', cells });
+  const block = WebImporter.Blocks.createBlock(document, { name: 'promo-banner', cells });
   element.replaceWith(block);
 }

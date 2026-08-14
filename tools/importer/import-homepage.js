@@ -3,7 +3,7 @@
 
 // PARSER IMPORTS
 import heroCollageParser from './parsers/hero-collage.js';
-import heroPromoParser from './parsers/hero-promo.js';
+import promoBannerParser from './parsers/promo-banner.js';
 import columnsProductParser from './parsers/columns-product.js';
 import cardsPricingParser from './parsers/cards-pricing.js';
 import cardsFeatureParser from './parsers/cards-feature.js';
@@ -26,7 +26,7 @@ const PAGE_TEMPLATE = {
       instances: ['.showBAUHero .a250-gradient'],
     },
     {
-      name: 'hero-promo',
+      name: 'promo-banner',
       instances: ['.showBAUHero .container-media-4b51e59470'],
     },
     {
@@ -52,7 +52,7 @@ const PAGE_TEMPLATE = {
       name: 'Hero + promo banner (BAU)',
       selector: 'body > main > div.container.responsivegrid.content-width__full-width:nth-of-type(2)',
       style: null,
-      blocks: ['hero-collage', 'hero-promo'],
+      blocks: ['hero-collage', 'promo-banner'],
       defaultContent: [],
     },
     {
@@ -81,7 +81,7 @@ const PAGE_TEMPLATE = {
 // PARSER REGISTRY - Map parser names to functions
 const parsers = {
   'hero-collage': heroCollageParser,
-  'hero-promo': heroPromoParser,
+  'promo-banner': promoBannerParser,
   'columns-product': columnsProductParser,
   'cards-pricing': cardsPricingParser,
   'cards-feature': cardsFeatureParser,

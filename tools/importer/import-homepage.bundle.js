@@ -77,7 +77,7 @@ var CustomImportScript = (() => {
     element.replaceWith(block);
   }
 
-  // tools/importer/parsers/hero-promo.js
+  // tools/importer/parsers/promo-banner.js
   function parse2(element, { document: document2 }) {
     const makeLink = (a) => {
       if (!a) return null;
@@ -103,7 +103,7 @@ var CustomImportScript = (() => {
     }
     const cells = [];
     cells.push([contentCell]);
-    const block = WebImporter.Blocks.createBlock(document2, { name: "hero-promo", cells });
+    const block = WebImporter.Blocks.createBlock(document2, { name: "promo-banner", cells });
     element.replaceWith(block);
   }
 
@@ -429,7 +429,7 @@ var CustomImportScript = (() => {
         instances: [".showBAUHero .a250-gradient"]
       },
       {
-        name: "hero-promo",
+        name: "promo-banner",
         instances: [".showBAUHero .container-media-4b51e59470"]
       },
       {
@@ -455,7 +455,7 @@ var CustomImportScript = (() => {
         name: "Hero + promo banner (BAU)",
         selector: "body > main > div.container.responsivegrid.content-width__full-width:nth-of-type(2)",
         style: null,
-        blocks: ["hero-collage", "hero-promo"],
+        blocks: ["hero-collage", "promo-banner"],
         defaultContent: []
       },
       {
@@ -482,7 +482,7 @@ var CustomImportScript = (() => {
   };
   var parsers = {
     "hero-collage": parse,
-    "hero-promo": parse2,
+    "promo-banner": parse2,
     "columns-product": parse3,
     "cards-pricing": parse4,
     "cards-feature": parse5,
