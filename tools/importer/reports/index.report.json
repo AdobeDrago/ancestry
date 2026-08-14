@@ -1,0 +1,16 @@
+{
+  "status": "success",
+  "url": "https://www.ancestry.com/",
+  "path": "index",
+  "timestamp": "2026-08-13T22:01:33.747Z",
+  "title": "Ancestry | Family Tree, Genealogy & Family History Records",
+  "template": "homepage",
+  "blocks": [
+    "hero-collage",
+    "hero-promo",
+    "columns-product",
+    "cards-pricing",
+    "cards-feature",
+    "columns-links"
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "variantName": "columns-product",
+  "baseBlock": "columns",
+  "version": "1.0.0",
+  "created": "2026-08-13T00:00:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.ancestry.com/",
+    "originPage": "Ancestry.com logged-out homepage (LOHP)",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "spacious",
+    "purpose": "product-intro",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "2 columns, each = image-card + heading + paragraph + CTA",
+    "buttonCount": 2,
+    "imageCount": 2
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "two wide product/feature panels shown side by side",
+      "comparisons where each half has an image, heading, body text and a CTA"
+    ],
+    "notSuitableFor": [
+      "narrow repeating card grids of 3+ items (use cards variants)",
+      "plain text/link column groupings (use columns-links)"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-08-13T00:00:00.000Z"
+  }
+}

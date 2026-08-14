@@ -1,0 +1,37 @@
+{
+  "variantName": "hero-collage",
+  "baseBlock": "hero",
+  "version": "1.0.0",
+  "created": "2026-08-13T00:00:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.ancestry.com/",
+    "originPage": "Ancestry.com logged-out homepage (LOHP)",
+    "blockPosition": "top"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "spacious",
+    "purpose": "hero",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "background-image + heading + subheading + CTA + fine-print",
+    "buttonCount": 1,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "top-of-page marketing hero with a full-bleed photo/collage background",
+      "landing pages needing a headline + single primary CTA over imagery"
+    ],
+    "notSuitableFor": [
+      "solid-color CTA banners with no background image (use hero-promo)",
+      "text-only page intros that should be default content"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-08-13T00:00:00.000Z"
+  }
+}
