@@ -15,8 +15,8 @@ header nav {
   justify-content: space-between;
   gap: 0 12px;
   margin: auto;
-  max-width: var(--content-max-width);
-  height: var(--nav-height);
+  max-width: 1200px;
+  height: var(--nav-height, 55px);
   padding: 0 20px;
   font-family: var(--body-font-family);
 }
@@ -33,7 +33,6 @@ header nav p {
   margin: 0;
 }
 
-/* nav links inherit color from their section (teal on desktop) */
 header nav a:any-link {
   color: currentcolor;
   text-decoration: none;
@@ -41,7 +40,6 @@ header nav a:any-link {
 
 /* brand / logo */
 header .nav-brand {
-  grid-area: brand;
   display: flex;
   align-items: center;
 }
