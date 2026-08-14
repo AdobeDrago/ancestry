@@ -49,11 +49,12 @@
   align-items: flex-start;
 }
 
-/* headings — source h3.text4xlrg.bold */
+/* headings — source h3.text4xlrg.bold: sans-serif body font (not the serif
+   heading face used by the section intro), bold. */
 .cards-feature h3 {
   margin: 0;
-  font-family: var(--heading-font-family);
-  font-size: var(--heading-font-size-l); /* 25px desktop */
+  font-family: var(--body-font-family);
+  font-size: var(--heading-font-size-m); /* 22px desktop / 20px mobile */
   font-weight: 700;
   line-height: 1.2;
   color: var(--text-color);
@@ -61,46 +62,16 @@
 
 /* paragraphs — source p.text2xlrg */
 .cards-feature .cards-feature-card-body p {
-  margin: 16px 0 0;
+  margin: 16px 0;
   font-family: var(--body-font-family);
   font-size: var(--body-font-size-m); /* 21.5px desktop */
   line-height: 1.33;
   color: var(--text-color);
 }
 
-/* CTA container spacing */
+/* CTA container spacing (colors come from the global button variants) */
 .cards-feature .cards-feature-card-body .button-container {
   margin: 24px 0 0;
-}
-
-/* CTA — green primary is the default (Discover more, Start our questionnaire).
- * Inherits a.button from styles.css (#328800 pill). Reassert scoped for specificity. */
-main .cards-feature a.button:any-link {
-  margin: 0;
-  background-color: var(--brand-green);
-  color: #fff;
-  border-radius: 32px;
-  padding: 10px 34px;
-  font-size: 18px;
-  font-weight: 700;
-}
-
-main .cards-feature a.button:hover,
-main .cards-feature a.button:focus {
-  background-color: var(--brand-green-dark);
-  color: #fff;
-}
-
-/* CTA — silver/secondary on the LAST card only (source: Explore more, button-color__silver) */
-main .cards-feature > ul > li:last-child a.button:any-link {
-  background-color: var(--cta-secondary-bg);
-  color: var(--text-color);
-}
-
-main .cards-feature > ul > li:last-child a.button:hover,
-main .cards-feature > ul > li:last-child a.button:focus {
-  background-color: var(--cta-secondary-bg-hover);
-  color: var(--text-color);
 }
 
 /* ---------- Desktop: 2-column bento ---------- */

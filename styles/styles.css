@@ -26,11 +26,12 @@
   --light-color: #f6f3f0; /* warm-grey light surface */
   --dark-color: #154734; /* dark green surface */
   --white-color: #fff;
-  --brand-green: #328800; /* rgb(50 136 0) */
+  --brand-green: #328800; /* rgb(50 136 0) — primary CTA */
   --brand-green-dark: #2a7300;
-  --brand-blue: #117fa6; /* rgb(17 127 166) */
-  --cta-secondary-bg: #e2e0dd;
-  --cta-secondary-bg-hover: #d5d2ce;
+  --brand-blue: #117fa6; /* rgb(17 127 166) — secondary CTA */
+  --brand-blue-dark: #0e6a8c;
+  --cta-neutral-bg: #767676; /* neutral grey — default CTA */
+  --cta-neutral-bg-hover: #5f5f5f;
 
   /* semantic aliases (reference the palette — no duplicate literals) */
   --background-color: var(--light-color);
@@ -176,7 +177,16 @@ a:hover {
   text-decoration: underline;
 }
 
-/* buttons — Ancestry primary CTA: green pill, white text, 700 weight */
+/* -----------------------------------------------------------------------------
+ * Global CTA buttons. Blocks must NOT re-style CTA colors; authors pick the
+ * variant via link emphasis (decorateButtons) or a class:
+ *   default   — plain link (.button)               → neutral grey
+ *   primary   — **bold** link (.button.primary)    → green
+ *   secondary — _italic_ link (.button.secondary)  → blue
+ * All variants: white text, 700 weight, pill shape.
+ * --------------------------------------------------------------------------- */
+
+/* default — neutral grey pill */
 a.button:any-link,
 button {
   box-sizing: border-box;
@@ -188,11 +198,12 @@ button {
   padding: 10px 34px;
   font-family: var(--body-font-family);
   font-style: normal;
+  font-size: 18px;
   font-weight: 700;
   line-height: 1.25;
   text-align: center;
   text-decoration: none;
-  background-color: var(--brand-green);
+  background-color: var(--cta-neutral-bg);
   color: #fff;
   cursor: pointer;
   text-overflow: ellipsis;
@@ -203,7 +214,7 @@ a.button:hover,
 a.button:focus,
 button:hover,
 button:focus {
-  background-color: var(--brand-green-dark);
+  background-color: var(--cta-neutral-bg-hover);
   color: #fff;
   text-decoration: none;
   cursor: pointer;
@@ -216,20 +227,34 @@ button:disabled:hover {
   cursor: unset;
 }
 
-/* secondary CTA — silver-grey pill with dark text */
-a.button.secondary,
+/* primary — green pill */
+a.button.primary:any-link,
+button.primary {
+  background-color: var(--brand-green);
+  color: #fff;
+}
+
+a.button.primary:hover,
+a.button.primary:focus,
+button.primary:hover,
+button.primary:focus {
+  background-color: var(--brand-green-dark);
+  color: #fff;
+}
+
+/* secondary — blue pill */
+a.button.secondary:any-link,
 button.secondary {
-  background-color: var(--cta-secondary-bg);
-  border: 1px solid transparent;
-  color: var(--text-color);
+  background-color: var(--brand-blue);
+  color: #fff;
 }
 
 a.button.secondary:hover,
 a.button.secondary:focus,
 button.secondary:hover,
 button.secondary:focus {
-  background-color: var(--cta-secondary-bg-hover);
-  color: var(--text-color);
+  background-color: var(--brand-blue-dark);
+  color: #fff;
 }
 
 /* keep multiple CTAs flowing inline where authored together */

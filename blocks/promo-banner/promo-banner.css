@@ -52,30 +52,23 @@
   font-weight: 700;
 }
 
-/* CTA — white-filled pill with dark label. Overrides the global green
-   a.button:any-link (specificity: 3 classes + 1 element beats 2 + 1). */
+/* CTA — inverse (white) pill with a dark label. This is a deliberate
+   block-specific exception: on the solid green band none of the global CTA
+   variants (green / blue / grey) have enough contrast, so the promo band
+   inverts the button. Only the colors are overridden; shape/size/typography
+   are inherited from the global button. */
 .promo-banner .button-container {
   margin: 0;
 }
 
 .promo-banner a.button:any-link {
-  display: inline-block;
-  margin: 0;
-  padding: 10px 34px;
-  border: 1px solid transparent;
-  border-radius: 32px;
   background-color: #fff;
-  color: var(--text-color); /* #262626 */
-  font-family: var(--body-font-family);
-  font-size: 18px;
-  font-weight: 700;
-  line-height: 30px;
-  white-space: nowrap;
+  color: var(--text-color);
 }
 
 .promo-banner a.button:hover,
 .promo-banner a.button:focus {
-  background-color: var(--cta-secondary-bg-hover); /* #d5d2ce */
+  background-color: #d5d2ce;
   color: var(--text-color);
 }
 

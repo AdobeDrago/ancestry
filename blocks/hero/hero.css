@@ -112,25 +112,6 @@
   margin: 36px 0 0;
 }
 
-/* CTA pill: green, white — matches source 18px / 9px 34px / radius 32px */
-.hero.collage a.button:any-link {
-  margin: 0;
-  padding: 9px 34px;
-  border: 1px solid transparent;
-  border-radius: 32px;
-  font-size: 18px;
-  font-weight: 700;
-  line-height: 30px;
-  background-color: var(--brand-green);
-  color: #fff;
-}
-
-.hero.collage a.button:hover,
-.hero.collage a.button:focus {
-  background-color: var(--brand-green-dark);
-  color: #fff;
-}
-
 /* --- Fine print (last paragraph) --- */
 .hero.collage p:last-of-type {
   margin: 14px 0 0;
