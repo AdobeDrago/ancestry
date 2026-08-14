@@ -16,6 +16,7 @@
   /* colors (brand values live in brand.css; mirrored here for the boilerplate names) */
   --light-color: #f6f3f0;
   --dark-color: #154734;
+  --white-color: #fff;
 
   /* body sizes (mobile-first: Ancestry body copy ~21.5px on desktop) */
   --body-font-size-m: 18px;
@@ -55,7 +56,7 @@
 body {
   display: none;
   margin: 0;
-  background-color: var(--background-color);
+  background-color: var(--white-color);
   color: var(--text-color);
   font-family: var(--body-font-family);
   font-size: var(--body-font-size-m);
